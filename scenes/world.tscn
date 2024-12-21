@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://u4j0c4pjqevu"]
+
+[ext_resource type="Script" path="res://scripts/boid_flock.gd" id="1_pjhul"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_wf8ce"]
+[ext_resource type="Script" path="res://scenes/frame_rate.gd" id="3_rix7o"]
+
+[sub_resource type="Gradient" id="Gradient_bh5ul"]
+offsets = PackedFloat32Array(0, 0.994792)
+colors = PackedColorArray(0.204791, 0.197685, 0.999997, 1, 0.380805, 0.598764, 0.974518, 1)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_wf8ce")
+
+[node name="Background" type="Polygon2D" parent="."]
+color = Color(0.113725, 0.121569, 0.129412, 1)
+polygon = PackedVector2Array(0, 0, 1400, 0, 1400, 700, 0, 700)
+
+[node name="BoidFlock" type="Node" parent="."]
+script = ExtResource("1_pjhul")
+color_grad = SubResource("Gradient_bh5ul")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="ResetButton" type="Button" parent="Ui"]
+offset_right = 66.0
+offset_bottom = 26.0
+text = "Reset"
+
+[node name="Opts" type="VBoxContainer" parent="Ui"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -297.0
+offset_bottom = 56.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/Opts"]
+layout_mode = 2
+
+[node name="ToggleCohesion" type="CheckButton" parent="Ui/Opts/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Cohesion"
+
+[node name="Cohesion" type="HSlider" parent="Ui/Opts/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/Opts"]
+layout_mode = 2
+
+[node name="ToggleSeparation" type="CheckButton" parent="Ui/Opts/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Separation
+"
+
+[node name="Separation" type="HSlider" parent="Ui/Opts/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Ui/Opts"]
+layout_mode = 2
+
+[node name="ToggleAlignment" type="CheckButton" parent="Ui/Opts/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Alignment"
+
+[node name="Alignment" type="HSlider" parent="Ui/Opts/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="FlockSize" type="SpinBox" parent="Ui/Opts"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+alignment = 3
+prefix = "FlockSize:"
+
+[node name="FrameRate" type="Label" parent="Ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("3_rix7o")

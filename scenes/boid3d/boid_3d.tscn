@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mxsnsk5f2r7d"]
+
+[ext_resource type="Script" path="res://scenes/boid3d/boid_3d.gd" id="1_5fajo"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_wm8sp"]
+
+[node name="Boid3D" type="MeshInstance3D"]
+mesh = SubResource("PrismMesh_wm8sp")
+script = ExtResource("1_5fajo")
