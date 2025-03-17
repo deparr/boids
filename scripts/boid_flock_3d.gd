@@ -37,6 +37,7 @@ var world_dim: Vector3:
 @export var color_grad: Gradient
 
 var flock: Array
+@export var multimesh: MultiMeshInstance3D
 
 func _ready() -> void:
 	world_dim = Vector3(50, 50, 50)

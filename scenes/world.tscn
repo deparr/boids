@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://u4j0c4pjqevu"]
 
-[ext_resource type="Script" path="res://scripts/boid_flock.gd" id="1_pjhul"]
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_wf8ce"]
-[ext_resource type="Script" path="res://scenes/frame_rate.gd" id="3_rix7o"]
+[ext_resource type="Script" uid="uid://b3yh38y6isido" path="res://scripts/boid_flock.gd" id="1_pjhul"]
+[ext_resource type="Script" uid="uid://cddv7wcqgrmhs" path="res://scenes/world.gd" id="1_wf8ce"]
+[ext_resource type="Script" uid="uid://bf1c824xgej4t" path="res://scenes/frame_rate.gd" id="3_rix7o"]
 
 [sub_resource type="Gradient" id="Gradient_bh5ul"]
 offsets = PackedFloat32Array(0, 0.994792)
@@ -108,3 +108,17 @@ offset_top = -23.0
 offset_right = 40.0
 grow_vertical = 0
 script = ExtResource("3_rix7o")
+
+[node name="GithubLink" type="LinkButton" parent="Ui"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "View code"
+underline = 1
+uri = "https://github.com/deparr/boids"

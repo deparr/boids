@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c5wlas15ni3i2"]
 
-[ext_resource type="Script" path="res://scripts/boid_flock_3d.gd" id="1_e3fxg"]
-[ext_resource type="Script" path="res://scenes/boid3d/world_3d.gd" id="1_sxfjc"]
-[ext_resource type="Script" path="res://scenes/boid3d/camera.gd" id="3_y5t78"]
-[ext_resource type="Script" path="res://scenes/frame_rate.gd" id="4_8rprm"]
+[ext_resource type="Script" uid="uid://ccvb0uqmwgyk" path="res://scripts/boid_flock_3d.gd" id="1_e3fxg"]
+[ext_resource type="Script" uid="uid://d0kwyl471bwjo" path="res://scenes/boid3d/world_3d.gd" id="1_sxfjc"]
+[ext_resource type="Script" uid="uid://c4uwikbvoo4cr" path="res://scenes/boid3d/camera.gd" id="3_y5t78"]
+[ext_resource type="Script" uid="uid://bf1c824xgej4t" path="res://scenes/frame_rate.gd" id="4_8rprm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipasw"]
 

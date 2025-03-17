@@ -156,9 +156,7 @@ func init_flock() -> void:
 	paused = false
 
 func reset_flock() -> void:
-	print(len(flock))
 	for boid in flock:
-		print(boid)
 		boid.position = Vector2(
 			randf_range(0, world_dim.x),
 			randf_range(0, world_dim.y),
