@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c6jmdtjw0rwur"]
+
+[ext_resource type="Script" uid="uid://errtupp64s15" path="res://Src/BoidFlock3d.cs" id="1_e0ebs"]
+[ext_resource type="Script" uid="uid://ha0hb2dwgvlc" path="res://Scenes/World3d.cs" id="1_rwaib"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e0ebs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_rwaib"]
+sky_material = SubResource("ProceduralSkyMaterial_e0ebs")
+
+[sub_resource type="Environment" id="Environment_1j568"]
+background_mode = 2
+sky = SubResource("Sky_rwaib")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0ebs"]
+albedo_color = Color(0.8991173, 0.47375786, 0.3862128, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_e0ebs"]
+material = SubResource("StandardMaterial3D_e0ebs")
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30yqp"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.08627451)
+
+[sub_resource type="SphereMesh" id="SphereMesh_68m80"]
+material = SubResource("StandardMaterial3D_30yqp")
+radius = 6.0
+height = 12.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_e0ebs"]
+size = Vector3(40, 0.3, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwaib"]
+albedo_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rwaib"]
+size = Vector3(40, 15, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j568"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 1, 0.03137255)
+
+[node name="World3D" type="Node3D" unique_id=1766761919 node_paths=PackedStringArray("flock")]
+script = ExtResource("1_rwaib")
+flock = NodePath("BoidFlock")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2072977564]
+environment = SubResource("Environment_1j568")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1007677953]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="BoidFlock" type="Node3D" parent="." unique_id=1183216354]
+script = ExtResource("1_e0ebs")
+boidCount = 2
+speedLimit = Vector2(0.1, 0.2)
+mesh = SubResource("PrismMesh_e0ebs")
+trackerMesh = SubResource("SphereMesh_68m80")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=530732864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=757851152]
+mesh = SubResource("BoxMesh_e0ebs")
+surface_material_override/0 = SubResource("StandardMaterial3D_rwaib")
+
+[node name="Glass" type="MeshInstance3D" parent="." unique_id=1114783733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4, 0)
+mesh = SubResource("BoxMesh_rwaib")
+surface_material_override/0 = SubResource("StandardMaterial3D_1j568")
+
+[node name="X" type="Label3D" parent="." unique_id=1653863232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, 0)
+pixel_size = 0.05
+billboard = 1
+text = "POS X"
+
+[node name="Z" type="Label3D" parent="." unique_id=497834667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 20)
+pixel_size = 0.05
+billboard = 1
+text = "POS Z"

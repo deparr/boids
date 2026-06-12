@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c7f07vkmnwh6o"]
+
+[ext_resource type="Script" uid="uid://dsbdwb1f1ccsm" path="res://Src/StructSizingTest.cs" id="1_x7q8q"]
+
+[node name="StructSizingTest" type="Control" unique_id=799542950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7q8q")
+shaderSource = "#version 450
+
+layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+
+struct SizeTest {
+	vec3 one;
+    vec3 two;
+};
+
+layout(set = 0, binding = 0, std430) restrict buffer STBuffer {
+    SizeTest i[];
+} st;
+
+void main() {
+  st.i[0].one = st.i[0].one + vec3(1.0, 2.0, 3.0);
+  st.i[0].two = st.i[0].two / 3.0;
+  st.i[1].one += vec3(1., 2., 3.);
+  st.i[1].two = st.i[1].two / 3.0;
+}
+
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=122813771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=804783640]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="SizeTestSize" type="Label" parent="CenterContainer/VBoxContainer" unique_id=504448669]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sizetest Size:"
+
+[node name="SizeTest2Size" type="Label" parent="CenterContainer/VBoxContainer" unique_id=789334588]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SizeTest2 Size"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1390364691]
+layout_mode = 2
+
+[node name="Ones" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1520712854]
+layout_mode = 2
+text = "Ones:"
+
+[node name="One" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2066865281]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1, 2, 3, 7, 8, 9"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1332761682]
+layout_mode = 2
+
+[node name="Twos" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1183372950]
+layout_mode = 2
+text = "Twos"
+
+[node name="Two" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1826601151]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "21, 51, 150, 200, 300 , 400"
+
+[node name="Submit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=394170613]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Submit"

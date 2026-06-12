@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c73tgyndjif3t"]
+
+[ext_resource type="Script" uid="uid://drllg7iwtoad0" path="res://Src/BoidFlock2d.cs" id="1_0tksb"]
+[ext_resource type="Script" uid="uid://bdlxy3tpov8k3" path="res://Scenes/FpsLabel.cs" id="2_24s1m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjevd"]
+font_size = 32
+
+[node name="BoidFlock2D" type="Node2D" unique_id=1281971758]
+script = ExtResource("1_0tksb")
+polygonPoints = PackedVector2Array(-5, 0, -10, 8, 12, 0, -10, -8)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=543969530]
+offset = Vector2(576, 324)
+
+[node name="Label" type="Label" parent="." unique_id=738868748]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1095.0
+offset_top = 618.0
+offset_right = 1135.0
+offset_bottom = 641.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "fps"
+label_settings = SubResource("LabelSettings_bjevd")
+script = ExtResource("2_24s1m")

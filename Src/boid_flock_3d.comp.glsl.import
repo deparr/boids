@@ -1,0 +1,13 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://vfabko3bvg46"
+valid=false
+
+[deps]
+
+source_file="res://Src/boid_flock_3d.comp.glsl"
+
+[params]
+

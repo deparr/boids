@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://bau2t7ugwapyl"
+path="res://.godot/imported/boid_flock.comp.glsl-2694ab232b1ebfe0bb1fda86c7e6f01b.res"
+
+[deps]
+
+source_file="res://Src/boid_flock.comp.glsl"
+dest_files=["res://.godot/imported/boid_flock.comp.glsl-2694ab232b1ebfe0bb1fda86c7e6f01b.res"]
+
+[params]
+

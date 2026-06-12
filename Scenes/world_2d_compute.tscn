@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bkfonvskhupag"]
+
+[ext_resource type="Script" uid="uid://bsdpia06clejp" path="res://Scenes/World2dCompute.cs" id="1_4hbmm"]
+[ext_resource type="Script" uid="uid://2sxp7q0p0jfo" path="res://Src/BoidFlock2dCompute.cs" id="2_li4gl"]
+
+[node name="World2DCompute" type="Node2D" unique_id=2031901468 node_paths=PackedStringArray("flock")]
+script = ExtResource("1_4hbmm")
+flock = NodePath("BoidFlock")
+
+[node name="BoidFlock" type="Node2D" parent="." unique_id=128587451]
+script = ExtResource("2_li4gl")
+boidCount = 512
+colors = PackedColorArray(0.25409198, 0.6629729, 0.8555272, 1, 0.8407987, 0.021104854, 0.40248603, 1, 0.800318, 0.71495515, 0, 1, 0.3922565, 0.71362364, 0.17087048, 1)
+polygonPoints = PackedVector2Array(-5, 0, -10, 8, 12, 0, -10, -8)
+
+[node name="World" type="CanvasLayer" parent="." unique_id=315641692]
+
+[node name="WorldControls" type="Control" parent="World" unique_id=1136921291]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="World/WorldControls" unique_id=1483617387]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 136.0
+grow_horizontal = 0
+
+[node name="CohesionContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=2014393324]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/CohesionContainer" unique_id=179330299]
+layout_mode = 2
+text = "Cohesion"
+
+[node name="CohesionSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/CohesionContainer" unique_id=1378486457]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="SeparationContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=1285640480]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/SeparationContainer" unique_id=297208851]
+layout_mode = 2
+text = "Separation"
+
+[node name="SeparationSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/SeparationContainer" unique_id=398376713]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="AlignmentContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=1825957059]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/AlignmentContainer" unique_id=253165694]
+layout_mode = 2
+text = "Alignment"
+
+[node name="AlignmentSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/AlignmentContainer" unique_id=1133042552]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="FlockSizeContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=887493858]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/FlockSizeContainer" unique_id=1778980266]
+layout_mode = 2
+text = "Flock Size"
+
+[node name="FlockSizeSpinBox" type="SpinBox" parent="World/WorldControls/VBoxContainer/FlockSizeContainer" unique_id=1296940010]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 300.0
+value = 1.0
+alignment = 1
+
+[node name="FPS" type="Label" parent="World/WorldControls" unique_id=929619842]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "fps"
