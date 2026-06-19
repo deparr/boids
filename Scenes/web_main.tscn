@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://yojbmxyuf2jh"]
+
+[ext_resource type="Script" uid="uid://b55rln400fvcx" path="res://Scenes/web_main.gd" id="1_p7b3w"]
+[ext_resource type="Script" uid="uid://lpxx6j1ka040" path="res://Src/boid_flock_2d.gd" id="2_hexlq"]
+[ext_resource type="PackedScene" uid="uid://cnqwggwwg88n1" path="res://Scenes/flock_controls.tscn" id="2_p7b3w"]
+[ext_resource type="Texture2D" uid="uid://bb18wkyeitkui" path="res://Assets/GitHub_Invertocat_White.png" id="4_hexlq"]
+
+[node name="WebMain" type="CanvasLayer" unique_id=429984940]
+script = ExtResource("1_p7b3w")
+
+[node name="BoidFlock2D" type="Node2D" parent="." unique_id=1547326469]
+script = ExtResource("2_hexlq")
+boid_count = 80
+polygon_points = PackedVector2Array(-5, 0, -10, 8, 12, 0, -10, -8)
+
+[node name="FlockControls" parent="." unique_id=1172187657 instance=ExtResource("2_p7b3w")]
+
+[node name="GitLink" type="LinkButton" parent="." unique_id=864447437]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 48.0
+grow_vertical = 0
+tooltip_text = "github.com/deparr/boids"
+uri = "https://github.com/deparr/boids"
+
+[node name="TextureRect" type="TextureRect" parent="GitLink" unique_id=239341833]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_hexlq")
+
+[node name="Version" type="Label" parent="GitLink" unique_id=961980014]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 40.0
+tooltip_text = "version text"
+mouse_filter = 1
+text = "?"

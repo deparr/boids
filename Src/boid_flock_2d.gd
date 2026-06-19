@@ -2,7 +2,7 @@ class_name BoidFlock2D
 extends Node2D
 
 @export var boid_count := 10;
-@export var colors: Array[Color] = [ Color.from_rgba8(0xff, 0xe3, 0x04) ]
+@export var colors: PackedColorArray
 @export var polygon_points:  PackedVector2Array
 
 @export var influence_radius := 120.0
@@ -121,7 +121,7 @@ func setup() -> void:
 
 	for i in boid_count:
 		var boid := Boid.new()
-		boid.color = colors.pick_random()
+		boid.color = colors[i % colors.size()]
 		boid.direction = Vector2.from_angle(randf_range(0.0, TAU))
 		boid.position = world_dim * Vector2(randf(), randf())
 		boid.velocity = boid.direction * randf_range(speed_limit.x, speed_limit.y)
@@ -136,6 +136,15 @@ func cleanup() -> void:
 	for boid in boids:
 		RenderingServer.free_rid(boid.rid)
 		boid.free()
+
+
+func set_boid_colors(new_colors: PackedColorArray) -> void:
+	colors = new_colors
+	for i in boid_count:
+		var boid := boids[i]
+		boid.color = colors[i % colors.size()]
+		RenderingServer.canvas_item_clear(boid.rid)
+		RenderingServer.canvas_item_add_polygon(boid.rid, polygon_points, PackedColorArray([boid.color]))
 
 
 class Boid extends Object:

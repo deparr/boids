@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cnqwggwwg88n1"]
+
+[ext_resource type="Script" uid="uid://dh1vn7anqmts2" path="res://Src/flock_controls.gd" id="1_dmqki"]
+
+[node name="FlockControls" type="Control" unique_id=1172187657]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dmqki")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=16890418]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 136.0
+grow_horizontal = 0
+
+[node name="CohesionContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1703007478]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CohesionContainer" unique_id=1807764961]
+layout_mode = 2
+text = "Cohesion"
+
+[node name="CohesionSlider" type="HSlider" parent="VBoxContainer/CohesionContainer" unique_id=447432233]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="SeparationContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=658350986]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SeparationContainer" unique_id=1038025301]
+layout_mode = 2
+text = "Separation"
+
+[node name="SeparationSlider" type="HSlider" parent="VBoxContainer/SeparationContainer" unique_id=1530359559]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="AlignmentContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=889953857]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AlignmentContainer" unique_id=1639843398]
+layout_mode = 2
+text = "Alignment"
+
+[node name="AlignmentSlider" type="HSlider" parent="VBoxContainer/AlignmentContainer" unique_id=938806640]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.05
+value = 1.0
+
+[node name="FlockSizeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=671310389]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FlockSizeContainer" unique_id=168688628]
+layout_mode = 2
+text = "Flock Size"
+
+[node name="FlockSizeSpinBox" type="SpinBox" parent="VBoxContainer/FlockSizeContainer" unique_id=1796118958]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 300.0
+value = 1.0
+alignment = 1
+
+[node name="ColorOptions" type="OptionButton" parent="VBoxContainer" unique_id=460184676]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "blue"
+popup/item_0/id = 1
+popup/item_1/text = "purple"
+popup/item_1/id = 2
+popup/item_2/text = "orange"
+popup/item_2/id = 3
+
+[node name="FPS" type="Label" parent="." unique_id=1533492209]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "fps"

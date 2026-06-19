@@ -3,11 +3,12 @@
 importer="glsl"
 type="RDShaderFile"
 uid="uid://vfabko3bvg46"
-valid=false
+path="res://.godot/imported/boid_flock_3d.comp.glsl-05ca5d46a46a9f336dd99af15eb42d13.res"
 
 [deps]
 
 source_file="res://Src/boid_flock_3d.comp.glsl"
+dest_files=["res://.godot/imported/boid_flock_3d.comp.glsl-05ca5d46a46a9f336dd99af15eb42d13.res"]
 
 [params]
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vfrgyl3qgycc" path="res://Scenes/world_2d.gd" id="1_27fmw"]
 [ext_resource type="Script" uid="uid://lpxx6j1ka040" path="res://Src/boid_flock_2d.gd" id="1_yr60l"]
+[ext_resource type="PackedScene" uid="uid://cnqwggwwg88n1" path="res://Scenes/flock_controls.tscn" id="3_l5dw5"]
 
 [node name="World2DGDscript" type="Node2D" unique_id=91387225 node_paths=PackedStringArray("flock")]
 script = ExtResource("1_27fmw")
@@ -15,97 +16,4 @@ polygon_points = PackedVector2Array(-5, 0, -10, 8, 12, 0, -10, -8)
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1771299037]
 
-[node name="WorldControls" type="Control" parent="World" unique_id=895153716]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="World/WorldControls" unique_id=1402317805]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 136.0
-grow_horizontal = 0
-
-[node name="CohesionContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=1189140233]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/CohesionContainer" unique_id=1546646925]
-layout_mode = 2
-text = "Cohesion"
-
-[node name="CohesionSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/CohesionContainer" unique_id=1881282913]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 5.0
-step = 0.05
-value = 1.0
-
-[node name="SeparationContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=1436843575]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/SeparationContainer" unique_id=1302598792]
-layout_mode = 2
-text = "Separation"
-
-[node name="SeparationSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/SeparationContainer" unique_id=642644060]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 5.0
-step = 0.05
-value = 1.0
-
-[node name="AlignmentContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=234891796]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/AlignmentContainer" unique_id=315438569]
-layout_mode = 2
-text = "Alignment"
-
-[node name="AlignmentSlider" type="HSlider" parent="World/WorldControls/VBoxContainer/AlignmentContainer" unique_id=1772986034]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 5.0
-step = 0.05
-value = 1.0
-
-[node name="FlockSizeContainer" type="HBoxContainer" parent="World/WorldControls/VBoxContainer" unique_id=614305694]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="World/WorldControls/VBoxContainer/FlockSizeContainer" unique_id=42304980]
-layout_mode = 2
-text = "Flock Size"
-
-[node name="FlockSizeSpinBox" type="SpinBox" parent="World/WorldControls/VBoxContainer/FlockSizeContainer" unique_id=2105394955]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 300.0
-value = 1.0
-alignment = 1
-
-[node name="FPS" type="Label" parent="World/WorldControls" unique_id=453256246]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "fps"
+[node name="FlockControls" parent="World" unique_id=1172187657 instance=ExtResource("3_l5dw5")]

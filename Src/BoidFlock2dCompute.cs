@@ -75,7 +75,7 @@ public partial class BoidFlock2dCompute : Node2D
 
         var shaderSource = new RDShaderSource();
         shaderSource.Language = RenderingDevice.ShaderLanguage.Glsl;
-        var srcString = FileAccess.GetFileAsString("res://Src/boid_flock_compute.glsl");
+        var srcString = FileAccess.GetFileAsString("res://Src/boid_flock.comp.glsl");
         shaderSource.SourceCompute = srcString;
         var spirv = rd.ShaderCompileSpirVFromSource(shaderSource);
 
@@ -101,7 +101,7 @@ public partial class BoidFlock2dCompute : Node2D
         rd.ComputeListBindComputePipeline(computeList, pipeline);
         rd.ComputeListBindUniformSet(computeList, uniformSet, 0);
         rd.ComputeListSetPushConstant(computeList, pushConstantBytes, (uint)pushConstantBytes.Length);
-        rd.ComputeListDispatch(computeList, (uint)boidCount, 1, 1);
+        rd.ComputeListDispatch(computeList, 4, 1, 1);
         rd.ComputeListEnd();
 
         rd.Submit();
@@ -119,7 +119,7 @@ public partial class BoidFlock2dCompute : Node2D
             var neighborCount = updated.Neigbors;
             if (neighborCount > 0)
             {
-                var centerAvg = updated.GroupCenter /= neighborCount;
+                var centerAvg = updated.GroupCenter / neighborCount;
                 var offsetToCenter = centerAvg - boid.Position;
                 acceleration += SteerTowards(offsetToCenter, boid.Velocity) * cohesionWeight;
                 acceleration += SteerTowards(updated.SeparationHeading, boid.Velocity) * separationWeight;
