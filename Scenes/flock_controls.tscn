@@ -25,6 +25,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CohesionContainer" unique_id=1807764961]
 layout_mode = 2
+mouse_filter = 1
 text = "Cohesion"
 
 [node name="CohesionSlider" type="HSlider" parent="VBoxContainer/CohesionContainer" unique_id=447432233]
@@ -41,6 +42,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/SeparationContainer" unique_id=1038025301]
 layout_mode = 2
+mouse_filter = 1
 text = "Separation"
 
 [node name="SeparationSlider" type="HSlider" parent="VBoxContainer/SeparationContainer" unique_id=1530359559]
@@ -57,6 +59,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/AlignmentContainer" unique_id=1639843398]
 layout_mode = 2
+mouse_filter = 1
 text = "Alignment"
 
 [node name="AlignmentSlider" type="HSlider" parent="VBoxContainer/AlignmentContainer" unique_id=938806640]

@@ -5,9 +5,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	menu.cohesion.tooltip_text = "Tendency of boids to steer towards the center of neighboring boids"
-	menu.separation.tooltip_text = "Tendency of boids to steer away from neighboring boids"
-	menu.alignment.tooltip_text = "Tendency of boids to align themselves the heading of neighboring boids"
+	menu.get_node(^"VBoxContainer/CohesionContainer/Label").tooltip_text = "Tendency of boids to steer towards the center of neighboring boids"
+	menu.get_node(^"VBoxContainer/SeparationContainer/Label").tooltip_text = "Tendency of boids to steer away from neighboring boids"
+	menu.get_node(^"VBoxContainer/AlignmentContainer/Label").tooltip_text = "Tendency of boids to align themselves with the heading of neighboring boids"
 
 	menu.cohesion.set_value_no_signal(flock.cohesion_weight)
 	menu.separation.set_value_no_signal(flock.separation_weight)
@@ -19,8 +19,6 @@ func _ready() -> void:
 
 	menu.flock_size.set_value_no_signal(flock.boid_count)
 	menu.flock_size.value_changed.connect(_update_flock_parameter.bind(3))
-
-	$GitLink/Version.tooltip_text = "@GIT_REV@"
 
 	menu.color_set_change.connect(_on_color_selected)
 

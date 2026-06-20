@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>boids - deparr</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/favicon.png" />
+        <link rel="stylesheet" href="/css/app.css" />
+        <script>{`if (localStorage.getItem("theme") == "dark")
+  document.documentElement.setAttribute("data-theme", "dark");
+else localStorage.removeItem("theme");`}
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script src="$GODOT_URL"></script>
+        <script>
+            var engine = new Engine($GODOT_CONFIG);
+            engine.startGame();
+        </script>
+    </body>
+</html>
