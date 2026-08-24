@@ -9,24 +9,25 @@ public partial class World2d : Node2D
 
     public override void _Ready()
     {
-        var cohesionSlider = GetNode<HSlider>("%CohesionSlider");
+        var fc = GetNode<Control>("World/FlockControls");
+        var cohesionSlider = fc.GetNode<HSlider>("%CohesionSlider");
         cohesionSlider.SetValueNoSignal(flock.cohesionWeight);
         cohesionSlider.ValueChanged += (value) => flock.cohesionWeight = (float)value;
 
-        var separationSlider = GetNode<HSlider>("%SeparationSlider");
+        var separationSlider = fc.GetNode<HSlider>("%SeparationSlider");
         separationSlider.SetValueNoSignal(flock.separationWeight);
         separationSlider.ValueChanged += (value) => flock.separationWeight = (float)value;
 
-        var alignmentSlider = GetNode<HSlider>("%AlignmentSlider");
+        var alignmentSlider = fc.GetNode<HSlider>("%AlignmentSlider");
         alignmentSlider.SetValueNoSignal(flock.alignmentWeight);
         alignmentSlider.ValueChanged += (value) => flock.alignmentWeight = (float)value;
 
-        var flockSize = GetNode<SpinBox>("%FlockSizeSpinBox");
+        var flockSize = fc.GetNode<SpinBox>("%FlockSizeSpinBox");
         flockSize.SetValueNoSignal(flock.boidCount);
         flockSize.ValueChanged += (value) => flock.ResizeFlock(Mathf.RoundToInt(value));
         flockSize.Editable = true;
 
-        fpsLabel = GetNode<Label>("%FPS");
+        fpsLabel = fc.GetNode<Label>("%FPS");
         GetViewport().SizeChanged += HandleWindowResize;
         HandleWindowResize();
         flock.Setup();
