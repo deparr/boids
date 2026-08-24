@@ -16,7 +16,7 @@ public partial class BoidFlock2d : Node2D
     public int boidCount { get; set; } = 10;
 
     [Export]
-    private Color[] colors = new Color[] { Color.Color8(0xff, 0xe3, 0x04) };
+    private Color[] colors = [Color.Color8(0xff, 0xe3, 0x04)];
 
     [Export]
     private Vector2[] polygonPoints;
@@ -181,7 +181,7 @@ public partial class BoidFlock2d : Node2D
             boids[i].Position = new Vector2((float)GD.RandRange(0f, worldDim.X), (float)GD.RandRange(0f, worldDim.Y));
             boids[i].Velocity = boids[i].Direction * (float)GD.RandRange(speedLimit.X, speedLimit.Y);
             var rid = RenderingServer.CanvasItemCreate();
-            RenderingServer.CanvasItemAddPolygon(rid, polygonPoints, new Color[] { boids[i].Color });
+            RenderingServer.CanvasItemAddPolygon(rid, polygonPoints, [boids[i].Color]);
             RenderingServer.CanvasItemSetParent(rid, GetCanvasItem());
             boids[i].Rid = rid;
         }
